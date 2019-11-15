@@ -41,3 +41,10 @@
 		</tbody>
 
 	</table>
+
+<?php
+
+	$borrar = new EmpleadosC();
+	$borrar -> BorrarEmpleadoC();
+
+?>

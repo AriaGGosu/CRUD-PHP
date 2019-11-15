@@ -8,7 +8,8 @@ class Modelo {
 
     static public function RutasModelo($rutas){
 
-        if($rutas == "ingreso" || $rutas == "registrar" || $rutas == "empleados" || $rutas == "salir"){
+        if($rutas == "ingreso" || $rutas == "registrar" || $rutas == "empleados" || 
+           $rutas == "salir" || $rutas == "empleados" || $rutas == "editar"){
 
             $pagina ="vistas/modulos/". $rutas.".php";
 

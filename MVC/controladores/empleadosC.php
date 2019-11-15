@@ -41,11 +41,94 @@
                     <td>'.$value["email"].'</td>
                     <td>'.$value["puesto"].'</td>
                     <td>'.$value["salario"].'</td>
-                    <td><button>Editar</button></td>
-                    <td><button>Borrar</button></td>
+                    <td><a href="index.php?ruta=editar&id='.$value["id"].'"><button>Editar</button></a></td>
+                    <td><a href="index.php?ruta=empleados&idB='.$value["id"].'"><button>Borrar</button></a></td>
                 </tr>';
             }
         }
+
+
+        // editar empleados
+        public function EditarEmpleadosC(){
+
+            $datosC = $_GET["id"];
+            $tablaBD = "empleados";
+
+            $respuesta = EmpleadosM::EditarEmpleadosM($datosC,$tablaBD);
+
+            echo '
+            <input value='.$respuesta["id"].' type="hidden" name="idE">
+            
+            <input value='.$respuesta["nombre"].' type="text" placeholder="Nombre" name="nombreE" required>
+
+            <input value='.$respuesta["apellido"].' type="text" placeholder="Apellido" name="apellidoE" required>
+    
+            <input value='.$respuesta["email"].' type="email" placeholder="Email" name="emailE" required>
+    
+            <input value='.$respuesta["puesto"].' type="text" placeholder="Puesto" name="puestoE" required>
+    
+            <input value='.$respuesta["salario"].' type="text" placeholder="Salario" name="salarioE" required>
+    
+            <input type="submit" value="Actualizar">';
+
+        }
+
+        // actualizar empleados 
+        public function ActualizarEmpleadosC(){
+
+            if(isset($_POST["nombreE"])){
+
+                $datosC = array(
+                    "id"=>$_POST["idE"],
+                    "nombre"=>$_POST["nombreE"],
+                    "apellido"=>$_POST["apellidoE"],
+                    "email"=>$_POST["emailE"],
+                    "puesto"=>$_POST["puestoE"],
+                    "salario"=>$_POST["salarioE"],    
+                );
+
+                $tablaBD ="empleados";
+
+                $respuesta = EmpleadosM::ActualizarEmpleadosM($datosC,$tablaBD);
+
+                if($respuesta == "Bien"){
+                    header("location:index.php?ruta=empleados");
+                }else{
+                    echo "error";
+                }
+            }
+
+        }
+
+        // borrar empleado 
+
+        public function BorrarEmpleadoC() {
+
+            if(isset($_GET["idB"])) {
+
+                $datosC = $_GET["idB"];
+                $tablaBD = "empleados";
+
+                $respuesta = EmpleadosM::BorrarEmpleadoM($datosC, $tablaBD);
+                if($respuesta == "Bien"){
+
+                    header("location:index.php?ruta=empleados");
+
+                }else{
+                    echo "Error";
+                }
+            }
+
+        }
+
+
+
+
+
+
+
+
+
 
     }
 
