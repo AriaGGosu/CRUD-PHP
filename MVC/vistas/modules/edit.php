@@ -14,10 +14,10 @@
 		
         <?php
         
-            $editar = new EmpleadosC();
+            $editar = new EmployeeC();
             $editar -> EditarEmpleadosC();
 
-            $actualizar = new EmpleadosC();
+            $actualizar = new EmployeeC();
             $actualizar -> ActualizarEmpleadosC();
 
         ?>

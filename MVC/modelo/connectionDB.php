@@ -1,6 +1,6 @@
 <?php
 
-    class ConexionBD{
+    class ConnectionDB{
 
         public function cDB(){
 

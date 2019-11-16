@@ -33,7 +33,7 @@
 
 			<?php
 
-				$mostrar = new EmpleadosC();
+				$mostrar = new EmployeeC();
 				$mostrar -> MostrarEmpleadosC();
 
 			?>
@@ -44,7 +44,7 @@
 
 <?php
 
-	$borrar = new EmpleadosC();
-	$borrar -> BorrarEmpleadoC();
+	$delete = new EmployeeC();
+	$delete -> DeleteEmployeeC();
 
 ?>

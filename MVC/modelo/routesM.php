@@ -8,18 +8,18 @@ class Modelo {
 
     static public function RutasModelo($rutas){
 
-        if($rutas == "ingreso" || $rutas == "registrar" || $rutas == "empleados" || 
-           $rutas == "salir" || $rutas == "empleados" || $rutas == "editar"){
+        if($rutas == "login" || $rutas == "register" || $rutas == "employee" || 
+           $rutas == "logout" || $rutas == "edit"){
 
-            $pagina ="vistas/modulos/". $rutas.".php";
+            $pagina ="vistas/modules/". $rutas.".php";
 
         }elseif($rutas == "index"){
 
-            $pagina = "vistas/modulos/ingreso.php";
+            $pagina = "vistas/modules/login.php";
 
         }else {
 
-            $pagina = "vistas/modulos/ingreso.php";
+            $pagina = "vistas/modules/login.php";
 
         }
 

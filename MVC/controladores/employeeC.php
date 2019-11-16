@@ -1,28 +1,28 @@
 <?php
 
-    class EmpleadosC {
+    class EmployeeC {
 
         // registrar empleados
 
-        public function RegistrarEmpleadosC(){
+        public function RegisterEmployeeC(){
 
             if(isset($_POST["nombreR"])){
 
-                $datosC = array(
+                $dataC = array(
                     "nombre"=>$_POST["nombreR"],
                     "apellido"=>$_POST["apellidoR"],
                     "email"=>$_POST["emailR"],
                     "puesto"=>$_POST["puestoR"],
                     "salario"=>$_POST["salarioR"]
                 );
-                $tablaBD ="empleados";
+                $tableDB ="empleados";
 
-                $respuesta = EmpleadosM::RegistrarEmpleadosM($datosC, $tablaBD);
+                $response = EmployeeM::RegisterEmployeeM($dataC, $tableDB);
 
-                if($respuesta == "Bien"){
-                    header("location:index.php?ruta=empleados");
+                if($response == "Ok"){
+                    header("location:index.php?ruta=employee");
                 }else {
-                    echo "Error en el codigo";
+                    echo "Syntax error";
                 }
             }
         }
@@ -31,7 +31,7 @@
 
         public function MostrarEmpleadosC(){
             $tablaBD = "empleados";
-            $respuesta = EmpleadosM::MostrarEmpleadosM($tablaBD);
+            $respuesta = EmployeeM::MostrarEmpleadosM($tablaBD);
 
             foreach ($respuesta as $key => $value) {
                 echo '
@@ -41,8 +41,8 @@
                     <td>'.$value["email"].'</td>
                     <td>'.$value["puesto"].'</td>
                     <td>'.$value["salario"].'</td>
-                    <td><a href="index.php?ruta=editar&id='.$value["id"].'"><button>Editar</button></a></td>
-                    <td><a href="index.php?ruta=empleados&idB='.$value["id"].'"><button>Borrar</button></a></td>
+                    <td><a href="index.php?ruta=edit&id='.$value["id"].'"><button>Editar</button></a></td>
+                    <td><a href="index.php?ruta=employee&idB='.$value["id"].'"><button>Borrar</button></a></td>
                 </tr>';
             }
         }
@@ -54,7 +54,7 @@
             $datosC = $_GET["id"];
             $tablaBD = "empleados";
 
-            $respuesta = EmpleadosM::EditarEmpleadosM($datosC,$tablaBD);
+            $respuesta = EmployeeM::EditarEmpleadosM($datosC,$tablaBD);
 
             echo '
             <input value='.$respuesta["id"].' type="hidden" name="idE">
@@ -89,7 +89,7 @@
 
                 $tablaBD ="empleados";
 
-                $respuesta = EmpleadosM::ActualizarEmpleadosM($datosC,$tablaBD);
+                $respuesta = EmployeeM::ActualizarEmpleadosM($datosC,$tablaBD);
 
                 if($respuesta == "Bien"){
                     header("location:index.php?ruta=empleados");
@@ -102,17 +102,17 @@
 
         // borrar empleado 
 
-        public function BorrarEmpleadoC() {
+        public function DeleteEmployeeC() {
 
             if(isset($_GET["idB"])) {
 
                 $datosC = $_GET["idB"];
                 $tablaBD = "empleados";
 
-                $respuesta = EmpleadosM::BorrarEmpleadoM($datosC, $tablaBD);
-                if($respuesta == "Bien"){
+                $respuesta = EmployeeM::DeleteEmployeeM($datosC, $tablaBD);
+                if($respuesta == "Ok"){
 
-                    header("location:index.php?ruta=empleados");
+                    header("location:index.php?ruta=employee");
 
                 }else{
                     echo "Error";

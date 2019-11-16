@@ -15,7 +15,7 @@
                     
                     session_start();
                     $_SESSION["ingreso"] = true;
-                    header("location:index.php?ruta=empleados");
+                    header("location:index.php?ruta=employee");
 
                 }else {
                     echo "Error al ingresar";

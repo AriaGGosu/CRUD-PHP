@@ -31,7 +31,7 @@
 
 	<?php
 
-	$registrar = new EmpleadosC();
-	$registrar -> RegistrarEmpleadosC();
+	$registrar = new EmployeeC();
+	$registrar -> RegisterEmployeeC();
 
 	?>

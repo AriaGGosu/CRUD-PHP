@@ -3,7 +3,7 @@
 class RutasControlador{
 
     public function plantilla() {
-        include "vistas/plantilla.php";
+        include "vistas/template.php";
     }
 // funcion publica con nombre rutas
 // esta funcion comprueba si la variable rutas traida por metodo get esta definida
