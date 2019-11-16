@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>CRUD</title>
-	<link rel="stylesheet" type="text/css" href="view/css/estilos.css">
+	<link rel="stylesheet" type="text/css" href="view/css/style.css">
 </head>
 
 <body>
