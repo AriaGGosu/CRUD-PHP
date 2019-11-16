@@ -1,14 +1,14 @@
 <?php 
 
-    require_once "controladores/routesC.php";
-    require_once "controladores/adminC.php";
-    require_once "controladores/employeeC.php";
+    require_once "controllers/routesC.php";
+    require_once "controllers/adminC.php";
+    require_once "controllers/employeeC.php";
 
-    require_once "modelo/routesM.php";
-    require_once "modelo/adminM.php";
-    require_once "modelo/employeeM.php";
+    require_once "model/routesM.php";
+    require_once "model/adminM.php";
+    require_once "model/employeeM.php";
 
-    $rutas = new RutasControlador();
-    $rutas -> plantilla();
+    $routes = new RoutesController();
+    $routes -> Template();
 
 ?>

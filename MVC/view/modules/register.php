@@ -1,11 +1,10 @@
 <?php	
 
 	session_start();
-	if(!$_SESSION["ingreso"]){
-		header("location:index.php?ruta=ingreso");
+	if(!$_SESSION["login"]){
+		header("location:index.php?ruta=login");
 		exit();
 	}
-
 
 ?>
 

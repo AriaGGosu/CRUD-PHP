@@ -29,11 +29,11 @@
 
         //mostrar empleados
 
-        public function MostrarEmpleadosC(){
-            $tablaBD = "empleados";
-            $respuesta = EmployeeM::MostrarEmpleadosM($tablaBD);
+        public function ShowEmployeeC(){
+            $tableDB = "empleados";
+            $response = EmployeeM::ShowEmployeeM($tableDB);
 
-            foreach ($respuesta as $key => $value) {
+            foreach ($response as $key => $value) {
                 echo '
                 <tr>
                     <td>'.$value["nombre"].'</td>
@@ -49,36 +49,36 @@
 
 
         // editar empleados
-        public function EditarEmpleadosC(){
+        public function EditEmployeeC(){
 
-            $datosC = $_GET["id"];
-            $tablaBD = "empleados";
+            $dataC = $_GET["id"];
+            $tableDB = "empleados";
 
-            $respuesta = EmployeeM::EditarEmpleadosM($datosC,$tablaBD);
+            $response = EmployeeM::EditEmployeeM($dataC,$tableDB);
 
             echo '
-            <input value='.$respuesta["id"].' type="hidden" name="idE">
+            <input value='.$response["id"].' type="hidden" name="idE">
             
-            <input value='.$respuesta["nombre"].' type="text" placeholder="Nombre" name="nombreE" required>
+            <input value='.$response["nombre"].' type="text" placeholder="Nombre" name="nombreE" required>
 
-            <input value='.$respuesta["apellido"].' type="text" placeholder="Apellido" name="apellidoE" required>
+            <input value='.$response["apellido"].' type="text" placeholder="Apellido" name="apellidoE" required>
     
-            <input value='.$respuesta["email"].' type="email" placeholder="Email" name="emailE" required>
+            <input value='.$response["email"].' type="email" placeholder="Email" name="emailE" required>
     
-            <input value='.$respuesta["puesto"].' type="text" placeholder="Puesto" name="puestoE" required>
+            <input value='.$response["puesto"].' type="text" placeholder="Puesto" name="puestoE" required>
     
-            <input value='.$respuesta["salario"].' type="text" placeholder="Salario" name="salarioE" required>
+            <input value='.$response["salario"].' type="text" placeholder="Salario" name="salarioE" required>
     
             <input type="submit" value="Actualizar">';
 
         }
 
         // actualizar empleados 
-        public function ActualizarEmpleadosC(){
+        public function UpdateEmployeeC(){
 
             if(isset($_POST["nombreE"])){
 
-                $datosC = array(
+                $dataC = array(
                     "id"=>$_POST["idE"],
                     "nombre"=>$_POST["nombreE"],
                     "apellido"=>$_POST["apellidoE"],
@@ -87,12 +87,12 @@
                     "salario"=>$_POST["salarioE"],    
                 );
 
-                $tablaBD ="empleados";
+                $tableDB ="empleados";
 
-                $respuesta = EmployeeM::ActualizarEmpleadosM($datosC,$tablaBD);
+                $response = EmployeeM::UpdateEmployeeM($dataC,$tableDB);
 
-                if($respuesta == "Bien"){
-                    header("location:index.php?ruta=empleados");
+                if($response == "Ok"){
+                    header("location:index.php?ruta=employee");
                 }else{
                     echo "error";
                 }
@@ -106,11 +106,11 @@
 
             if(isset($_GET["idB"])) {
 
-                $datosC = $_GET["idB"];
-                $tablaBD = "empleados";
+                $dataC = $_GET["idB"];
+                $tableDB = "empleados";
 
-                $respuesta = EmployeeM::DeleteEmployeeM($datosC, $tablaBD);
-                if($respuesta == "Ok"){
+                $response = EmployeeM::DeleteEmployeeM($dataC, $tableDB);
+                if($response == "Ok"){
 
                     header("location:index.php?ruta=employee");
 

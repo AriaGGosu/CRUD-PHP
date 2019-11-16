@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>CRUD</title>
-	<link rel="stylesheet" type="text/css" href="vistas/css/estilos.css">
+	<link rel="stylesheet" type="text/css" href="view/css/estilos.css">
 </head>
 
 <body>
@@ -14,8 +14,8 @@
 
     <section>
         <?php
-            $rutas = new RutasControlador();
-            $rutas-> Rutas();
+            $routes = new RoutesController();
+            $routes-> Routes();
         ?>
     </section>
 

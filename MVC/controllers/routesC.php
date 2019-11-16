@@ -1,28 +1,27 @@
 <?php
 
-class RutasControlador{
+class RoutesController{
 
-    public function plantilla() {
-        include "vistas/template.php";
+    public function Template() {
+        include "view/template.php";
     }
 // funcion publica con nombre rutas
 // esta funcion comprueba si la variable rutas traida por metodo get esta definida
 // si esta definida guardamos la variable en la variable "ruta" en $rutas 
 // o si no le asignamos un valor por defecto 
 
-    public function Rutas(){
+    public function Routes(){
         if(isset($_GET["ruta"])){
-            $rutas = $_GET["ruta"];
+            $routes = $_GET["ruta"];
         }else{
-            $rutas = "index";
+            $routes = "index";
         }
 
 // aqui tenemos la variable $respuesta que sera un objeto de la clase modelo
-// asociada a la funcion RutasModelo y esta recibira el valor traido por metodo GET de $rutas
+// asociada a la funcion RutasModelo y esta recibira el valor traido por metodo GET de $routes
 
-
-    $respuesta = Modelo::RutasModelo($rutas);
-    include $respuesta;
+    $response = Model::RoutesModel($routes);
+    include $response;
     
     }
 }

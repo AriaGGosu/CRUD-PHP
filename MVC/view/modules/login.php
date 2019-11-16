@@ -8,7 +8,7 @@
 
 <?php
 
-	$ingreso = new AdminC();
-	$ingreso -> ingresoC();
+	$login = new AdminC();
+	$login -> LoginC();
 
 ?>
